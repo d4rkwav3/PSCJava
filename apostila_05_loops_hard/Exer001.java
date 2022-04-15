@@ -60,13 +60,13 @@ public static void main(String[] args) {
                         JOptionPane.showMessageDialog(null, String.format("A soma de %.1f + %.1f é: %.1f", num1, num2, calc.soma(num1, num2)));     
                         break;
                     case 2://Perceba que os métodos usam como argumentos as variáveis criadas anteriormente com os valores que o usuário digitou
-                        JOptionPane.showMessageDialog(null, String.format("A subtração de %.1f + %.1f é: %.1f", num1, num2, calc.subtracao(num1, num2)));
+                        JOptionPane.showMessageDialog(null, String.format("A subtração de %.1f - %.1f é: %.1f", num1, num2, calc.subtracao(num1, num2)));
                         break;
                     case 3:
-                        JOptionPane.showMessageDialog(null, String.format("A multiplicação de %.1f + %.1f é: %.1f", num1, num2, calc.multiplicacao(num1, num2)));
+                        JOptionPane.showMessageDialog(null, String.format("A multiplicação de %.1f * %.1f é: %.1f", num1, num2, calc.multiplicacao(num1, num2)));
                         break;
                     case 4:
-                        JOptionPane.showMessageDialog(null, String.format("A divisão de %.1f + %.1f é: %.1f", num1, num2, calc.divisao(num1, num2)));
+                        JOptionPane.showMessageDialog(null, String.format("A divisão de %.1f / %.1f é: %.1f", num1, num2, calc.divisao(num1, num2)));
                         break;
                 } 
             }//Caso o valor da variável opcaoSelecionada seja o 5, torna falsa a variável booleana continuar e isso vai encerra o loop na próxima verificação
