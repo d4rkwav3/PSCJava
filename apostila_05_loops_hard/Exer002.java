@@ -5,20 +5,20 @@ import javax.swing.JOptionPane;
 
 public class Exer002 {
     private ArrayList<Integer> listaDeNumeros = new ArrayList<Integer>();
-    private float soma;
-    private float quantidade;
-    private float media;
-    private float maior;
-    private float menor;
-    private float mediaPares;
+    private float soma = 0;
+    private float quantidade = 0;
+    private float media = 0;
+    private float maior = 0;
+    private float menor = 999999999;
+    private float mediaPares = 0;
 
     public void adicionarNumeroALista (int numero) {
         this.listaDeNumeros.add(numero);
     }
 
     public void gerarSoma() {
-        for (int indice = 0; indice >= this.listaDeNumeros.size() -1; indice++) {
-            this.soma += listaDeNumeros.get(indice);
+        for (int indice = 0; indice <= listaDeNumeros.size() - 1; indice++) {
+            this.soma += this.listaDeNumeros.get(indice);
         }
     }
 
@@ -55,7 +55,6 @@ public class Exer002 {
     }
 
     public void gerarMenor() {
-        this.menor = 999999999;
         for (int indice = 0; indice <= this.listaDeNumeros.size() - 1; indice++) {
             if (this.listaDeNumeros.get(indice) < this.menor)
                 this.menor = this.listaDeNumeros.get(indice);
