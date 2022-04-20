@@ -48,7 +48,7 @@ public static void main(String[] args) {
 
         float num1, num2; 
         boolean continuar = true; 
-        int opcaoSelecionada; 
+        int opcao; 
         
         String a = "\n1 - Adição", b = "\n2 - Subtração", c = "\n3 - Multiplicação", d = "\n4 - Divisão", e = "\n5 - Sair";
         
@@ -57,13 +57,15 @@ public static void main(String[] args) {
         
         do {
             System.out.printf("\nSelecione uma opção: %s %s %s %s %s\n: ", a, b, c, d, e);
-            opcaoSelecionada = entrada.nextInt();
+            opcao = entrada.nextInt();
             entrada.nextLine();
             
-            if (opcaoSelecionada >= 1 && opcaoSelecionada <= 4) {
+            if (opcao >= 1 && opcao <= 4) {
+                
                 num1 = calc.escolherPrimeiroNumero();
                 num2 = calc.escolherSegundoNumero();
-                switch (opcaoSelecionada) {
+
+                switch (opcao) {
                     case 1:
                         System.out.printf("\n%.1f mais %.1f é: %.1f\n", num1, num2, calc.soma(num1, num2));     
                         break;
@@ -78,7 +80,7 @@ public static void main(String[] args) {
                         break;
                 } 
             }
-            else if (opcaoSelecionada == 5) {
+            else if (opcao == 5) {
                 System.out.println("\nPrograma encerrado!\n");
                 continuar = false;
             }

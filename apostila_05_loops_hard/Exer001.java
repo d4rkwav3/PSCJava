@@ -7,13 +7,13 @@ public class Exer001 {
     private float a, b;
     //Esse método atribui um valor ao atributo a e retorna ele
     public float escolherPrimeiroNumero () {
-        a = Float.parseFloat(JOptionPane.showInputDialog("Digite o primeiro número:"));
-        return a;
+        this.a = Float.parseFloat(JOptionPane.showInputDialog("Digite o primeiro número:"));
+        return this.a;
     }
     //Esse método atribui um valor ao atributo b e retorna ele
     public float escolherSegundoNumero () {
-        b = Float.parseFloat(JOptionPane.showInputDialog("Digite o segundo número:"));
-        return b;
+        this.b = Float.parseFloat(JOptionPane.showInputDialog("Digite o segundo número:"));
+        return this.b;
     }
     //Esse método mostra uma mensagem de erro
     public void opcaoInvalida () {

@@ -1,9 +1,9 @@
 package desafios.apostila_05_loops_hard;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
-public class Exer002 {
+public class Exer002Scanner {
     private ArrayList<Integer> listaDeNumeros = new ArrayList<Integer>();
     private float soma = 0;
     private float quantidade = 0;
@@ -86,17 +86,23 @@ public class Exer002 {
 
     public static void main(String[] args) {
         int numero = 1;
-        Exer002 lista = new Exer002();
+        Exer002Scanner lista = new Exer002Scanner();
+        Scanner input = new Scanner(System.in);
         String mensagem;
 
+        System.out.println("Digite qualquer valor INTEIRO.\nPara finalizar digite 0 ou um número negativo.");
+
         while (numero > 0) {
-            numero = Integer.parseInt(JOptionPane.showInputDialog("Digite qualquer valor INTEIRO.\nPara finalizar digite 0 ou um número negativo."));
+            System.out.print(": ");
+            numero = input.nextInt();
+            input.nextLine();
             
             if (numero > 0) {
                 lista.adicionarNumeroALista(numero);
             }
         }
         
+        input.close();
         lista.gerarSoma();
         lista.gerarQuantidade();
         lista.gerarMedia();
@@ -104,8 +110,8 @@ public class Exer002 {
         lista.gerarMenor();
         lista.gerarMediaPares();
 
-        mensagem = String.format("Soma dos números: %.1f \nQuantidade de números digitados: %.0f \nMédia dos números: %.1f \nMaior número digitado: %.0f \nMenor número digitado: %.0f \nMédia dos números pares: %.1f ", lista.mostrarSoma(), lista.mostrarQuantidade(), lista.mostrarMedia(), lista.mostrarMaior(), lista.mostrarMenor(), lista.mostrarMediaPares());
+        mensagem = String.format("\nSoma dos números: %.1f \nQuantidade de números digitados: %.0f \nMédia dos números: %.1f \nMaior número digitado: %.0f \nMenor número digitado: %.0f \nMédia dos números pares: %.1f ", lista.mostrarSoma(), lista.mostrarQuantidade(), lista.mostrarMedia(), lista.mostrarMaior(), lista.mostrarMenor(), lista.mostrarMediaPares());
 
-        JOptionPane.showMessageDialog(null, mensagem);
+        System.out.println(mensagem);
     }
 }
