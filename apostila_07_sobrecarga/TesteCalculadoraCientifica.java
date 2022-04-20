@@ -2,13 +2,14 @@ package desafios.apostila_07_sobrecarga;
 
 public class TesteCalculadoraCientifica {
     public static void main(String[] args) {
-        CalculadoraCientifica calc = new CalculadoraCientifica();
-        int a = 2, b = 4;
-        double c = 2.5, d = 6.4;
-        String texto1 = "4", texto2 = "10.0";
-        byte e = 0011, f = 0010;
+        CalculadoraCientifica calc = new CalculadoraCientifica(); //Cria um objeto CalculadoraCientifica
+        //Algumas variáveis com valores para testar os métodos
+        int a = 6, b = 3;
+        double c = 100, d = 5;
+        String texto1 = "10.0", texto2 = "4";
+        byte e = 2, f = 3;
 
-
+        //Testando os métodos usando as variáveis
         System.out.println(calc.Potenciacao(c, d));
         System.out.println(calc.Radiciacao(c, d));
         System.out.println(calc.Raiz(a));
