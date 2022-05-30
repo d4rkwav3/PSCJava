@@ -163,25 +163,29 @@ public class CursosTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adicionarCursoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarCursoButtonActionPerformed
-        int escolha = JOptionPane.showConfirmDialog(null, "Atualizar curso?");
+        String nomeCurso = nomeCursoTextField.getText();
+        String tipoCurso = tipoCursoTextField.getText();
         
-        if (escolha == JOptionPane.YES_OPTION) {
-            
-            try {
-                int id = Integer.parseInt (idCursoTextField.getText());
-                String nome = nomeCursoTextField.getText();
-                String tipo = tipoCursoTextField.getText();
-                Curso curso = new Curso (id, nome, tipo);
-                DAO dao = new DAO();
-                dao.atualizarCurso(curso);
-                JOptionPane.showMessageDialog(null, "Curso atualizado com sucesso");
-                buscarCursos();
-                idCursoTextField.setText("");
-                nomeCursoTextField.setText("");
-                tipoCursoTextField.setText("");
+        if (nomeCurso == null || nomeCurso.length() <= 5 ||
+            tipoCurso == null || tipoCurso.length() <= 5){
+            JOptionPane.showMessageDialog (null, "Verifique o curso e tipo e tente novamente");
+        }
+        
+        else {
+            try{
+                int escolha = JOptionPane.showConfirmDialog(null, "Confirmar cadastro de novo curso?");
+                if (escolha == JOptionPane.YES_OPTION){
+                    Curso curso = new Curso (nomeCurso, tipoCurso);
+                    DAO dao = new DAO();
+                    dao.inserirCurso(curso);
+                    JOptionPane.showMessageDialog(null, "Curso cadastrado com sucesso");
+                    nomeCursoTextField.setText("");
+                    tipoCursoTextField.setText("");
+                    buscarCursos();
+                }
             }
-            catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Falha técnica. Tente novamente mais tarde.");
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Falha técnica, tente mais tarde");
                 e.printStackTrace();
             }
         }
@@ -203,7 +207,7 @@ public class CursosTela extends javax.swing.JFrame {
             int escolha = JOptionPane.showConfirmDialog(null, "Atualizar curso?");
             
             if (escolha == JOptionPane.YES_OPTION) {
-                if (nome.length() > 0 && tipo.length() > 0) {
+                if (nome.length() > 3 && tipo.length() > 3) {
                     try {
                         Curso curso = new Curso (id, nome, tipo);
                         DAO dao = new DAO();
@@ -226,30 +230,36 @@ public class CursosTela extends javax.swing.JFrame {
             }
             
         } catch (Exception numberFormatException) {
-            JOptionPane.showMessageDialog(null, "Para atualizar, selecione um curso a ser atualizado");
+            JOptionPane.showMessageDialog(null, "É preciso selecionar um curso para atualiza-lo.", "Nenhum curso selecionado!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_atualizarCursoButtonActionPerformed
 
     private void removerCursoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerCursoButtonActionPerformed
-        int escolha = JOptionPane.showConfirmDialog(null, "Remover curso?");
-        
-        if (escolha == JOptionPane.YES_OPTION) {
-            try {
-                int id = Integer.parseInt(idCursoTextField.getText());
-                Curso curso = new Curso (id);
-                DAO dao = new DAO();
-                dao.removerCurso(curso);
-                JOptionPane.showMessageDialog(null, "Curso removido com sucesso!");
-                buscarCursos();
-                nomeCursoTextField.setText("");
-                tipoCursoTextField.setText("");
-                idCursoTextField.setText("");
-            }
-            catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Falha técnica. Tente novamente mais tardel");
-                e.printStackTrace();
+        try {
+            int id = Integer.parseInt(idCursoTextField.getText());
+            
+            int escolha = JOptionPane.showConfirmDialog(null, "Remover curso?");
+            
+            if (escolha == JOptionPane.YES_OPTION) {
+                try {
+                    Curso curso = new Curso (id);
+                    DAO dao = new DAO();
+                    dao.removerCurso(curso);
+                    JOptionPane.showMessageDialog(null, "Curso removido com sucesso!");
+                    buscarCursos();
+                    nomeCursoTextField.setText("");
+                    tipoCursoTextField.setText("");
+                    idCursoTextField.setText("");
+                }
+                catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Falha técnica. Tente novamente mais tarde");
+                    e.printStackTrace();
+                }
             }
         }
+        catch (Exception numberFormatException) {
+            JOptionPane.showMessageDialog(null, "É preciso selecionar um curso para atualiza-lo.", "Nenhum curso selecionado!", JOptionPane.ERROR_MESSAGE);
+        }      
     }//GEN-LAST:event_removerCursoButtonActionPerformed
 
     private void cancelarCursoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCursoButtonActionPerformed
