@@ -69,6 +69,7 @@ public class DAO {
                 PreparedStatement ps = conexao.prepareStatement(sql)) {
             ps.setString(1, curso.getNome());
             ps.setString(2, curso.getTipo());
+            ps.setInt(3, curso.getId());
             ps.execute();
         }
     }
