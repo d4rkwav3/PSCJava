@@ -53,12 +53,13 @@ public class CursosTela extends javax.swing.JFrame {
         removerCursoButton = new javax.swing.JButton();
         cancelarCursoButton = new javax.swing.JButton();
         cursosComboBox = new javax.swing.JComboBox();
+        mostraAlunoButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de cursos"));
 
-        idCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Id"));
+        idCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("id"));
 
         nomeCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
 
@@ -99,6 +100,13 @@ public class CursosTela extends javax.swing.JFrame {
             }
         });
 
+        mostraAlunoButton.setText("Mostrar Alunos do Curso");
+        mostraAlunoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostraAlunoButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,6 +127,10 @@ public class CursosTela extends javax.swing.JFrame {
                             .addComponent(cancelarCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(cursosComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(mostraAlunoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +143,9 @@ public class CursosTela extends javax.swing.JFrame {
                 .addComponent(nomeCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(tipoCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mostraAlunoButton)
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adicionarCursoButton)
                     .addComponent(atualizarCursoButton))
@@ -139,7 +153,7 @@ public class CursosTela extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removerCursoButton)
                     .addComponent(cancelarCursoButton))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,6 +282,12 @@ public class CursosTela extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancelarCursoButtonActionPerformed
 
+    private void mostraAlunoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostraAlunoButtonActionPerformed
+        MostraAlunosCursoTela ac = new MostraAlunosCursoTela();
+        ac.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_mostraAlunoButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -310,6 +330,7 @@ public class CursosTela extends javax.swing.JFrame {
     private javax.swing.JComboBox cursosComboBox;
     private javax.swing.JTextField idCursoTextField;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostraAlunoButton;
     private javax.swing.JTextField nomeCursoTextField;
     private javax.swing.JButton removerCursoButton;
     private javax.swing.JTextField tipoCursoTextField;
